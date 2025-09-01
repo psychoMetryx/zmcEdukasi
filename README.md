@@ -349,7 +349,8 @@ Kriteria: UI bisa switch label; konten medis tetap Bahasa Indonesia untuk sement
 
 Cara Pakai
 1. Buka Codex (repo sudah terhubung).
-2. Paste Task 0 → jalankan.
-3. Lanjutkan Task 1 → 11 satu per satu.
-4. Setelah Task 11, push ke GitHub, lalu import ke Vercel.
+2. Jalankan `npm install` untuk mengunduh dependensi.
+3. Paste Task 0 → jalankan.
+4. Lanjutkan Task 1 → 11 satu per satu.
+5. Setelah Task 11, push ke GitHub, lalu import ke Vercel.
 Kalau kamu mau, aku bisa tulis satu “super-prompt” untuk langsung membuat Task 1–5 sekaligus, tapi rekomendasi saya kerjakan bertahap agar hasilnya rapi dan mudah dikoreksi.
