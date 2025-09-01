@@ -1,4 +1,6 @@
 # zmcEdukasi
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository=https://github.com/zmcEdukasi/zmcEdukasi)
+
 Aplikasi Edukasi Penyakit ZMC — Publik-Only MVP
 📖 Ringkasan
 Proyek ini adalah aplikasi edukasi kesehatan untuk publik yang dikembangkan untuk Klinik Pratama Zihan Medical Center (ZMC). Aplikasi ini berbasis PWA (Progressive Web App) dengan konsep offline-first, ditujukan bagi pasien, keluarga, dan masyarakat umum. Fokusnya adalah menyajikan informasi kesehatan yang jelas, terstruktur, dan mudah diakses — tanpa fitur klinis — untuk meningkatkan literasi, mengurangi miskonsepsi, serta mendorong perilaku hidup sehat【25†source】.
