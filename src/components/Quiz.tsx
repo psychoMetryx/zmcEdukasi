@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { track } from '../utils/analytics'
 
 export interface QuizQuestion {
   question: string
@@ -19,6 +20,10 @@ export default function Quiz({ questions, onFinish }: QuizProps) {
   const [finished, setFinished] = useState(false)
   const [score, setScore] = useState(0)
 
+  useEffect(() => {
+    track('quiz_start', { total: questions.length })
+  }, [questions.length])
+
   const q = questions[current]
 
   function selectOption(index: number) {
@@ -37,6 +42,7 @@ export default function Quiz({ questions, onFinish }: QuizProps) {
       )
       setScore(s)
       setFinished(true)
+      track('quiz_finish', { score: s, total: questions.length })
       onFinish(s)
     }
   }
