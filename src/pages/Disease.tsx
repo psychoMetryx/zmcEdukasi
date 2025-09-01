@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getDiseaseBySlug } from '../data/diseases'
 import Quiz from '../components/Quiz'
 import { generateLeafletPDF } from '../utils/leaflet'
+import { track } from '../utils/analytics'
 
 function renderList(title: string, items?: string[]) {
   if (!items || items.length === 0) return null
@@ -20,6 +22,12 @@ function renderList(title: string, items?: string[]) {
 export default function Disease() {
   const { slug } = useParams<{ slug: string }>()
   const disease = slug ? getDiseaseBySlug(slug) : undefined
+
+  useEffect(() => {
+    if (disease) {
+      track('disease_view', { slug: disease.slug })
+    }
+  }, [disease])
 
   if (!disease) {
     return (
@@ -63,9 +71,9 @@ export default function Disease() {
           <summary className="cursor-pointer font-semibold">Kuis</summary>
           <Quiz
             questions={disease.quiz}
-            onFinish={(score) =>
+            onFinish={(score) => {
               localStorage.setItem(`quiz:zmc:${disease.slug}`, String(score))
-            }
+            }}
           />
         </details>
       )}
