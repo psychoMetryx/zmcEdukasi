@@ -5,7 +5,7 @@ import InstallPrompt from './InstallPrompt'
 
 export default function Container({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-gray-900">
+    <div className="flex min-h-screen flex-col bg-brand-background text-brand-foreground font-brand">
       <Header />
       <main className="flex-1 p-4">{children}</main>
       <Footer />

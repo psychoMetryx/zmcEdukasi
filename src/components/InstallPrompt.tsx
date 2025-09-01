@@ -32,17 +32,17 @@ export default function InstallPrompt() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50">
-      <div className="rounded bg-white p-4 shadow">
-        <p className="mb-4 text-gray-900">Install aplikasi ini?</p>
+      <div className="rounded bg-brand-background p-4 shadow">
+        <p className="mb-4 text-brand-foreground">Install aplikasi ini?</p>
         <div className="flex justify-end gap-2">
           <button
-            className="rounded bg-gray-200 px-3 py-1"
+            className="rounded bg-brand-surfaceMuted px-3 py-1"
             onClick={() => setVisible(false)}
           >
             Batal
           </button>
           <button
-            className="rounded bg-teal-600 px-3 py-1 text-white"
+            className="rounded bg-brand-accent px-3 py-1 text-brand-background"
             onClick={install}
           >
             Install

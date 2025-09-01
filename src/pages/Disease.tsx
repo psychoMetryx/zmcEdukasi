@@ -9,7 +9,7 @@ function renderList(title: string, items?: string[]) {
   if (!items || items.length === 0) return null
   return (
     <section className="mb-4">
-      <h2 className="font-semibold">{title}</h2>
+      <h2 className="font-heading font-semibold">{title}</h2>
       <ul className="list-disc pl-4">
         {items.map((item) => (
           <li key={item}>{item}</li>
@@ -32,9 +32,9 @@ export default function Disease() {
   if (!disease) {
     return (
       <div>
-        <h1 className="mb-4 text-xl font-semibold">404</h1>
+        <h1 className="mb-4 text-xl font-heading font-semibold">404</h1>
         <p>Penyakit tidak ditemukan.</p>
-        <Link to="/" className="text-blue-600 underline">
+        <Link to="/" className="text-brand-primary underline">
           Kembali ke beranda
         </Link>
       </div>
@@ -45,17 +45,17 @@ export default function Disease() {
 
   return (
     <article>
-      <h1 className="mb-4 text-xl font-semibold">{disease.name}</h1>
+      <h1 className="mb-4 text-xl font-heading font-semibold">{disease.name}</h1>
       <button
         onClick={() => generateLeafletPDF(disease)}
-        className="mb-4 rounded bg-blue-600 px-4 py-2 text-white"
+        className="mb-4 rounded bg-brand-primary px-4 py-2 text-brand-background"
       >
         Unduh Leaflet (PDF)
       </button>
       {s?.header && <p className="mb-4">{s.header}</p>}
       {s?.apaItu && (
         <section className="mb-4">
-          <h2 className="font-semibold">Apa itu?</h2>
+          <h2 className="font-heading font-semibold">Apa itu?</h2>
           <p>{s.apaItu}</p>
         </section>
       )}
@@ -68,7 +68,7 @@ export default function Disease() {
       {renderList('FAQ', s?.faq)}
       {disease.quiz && (
         <details className="mb-4">
-          <summary className="cursor-pointer font-semibold">Kuis</summary>
+          <summary className="cursor-pointer font-heading font-semibold">Kuis</summary>
           <Quiz
             questions={disease.quiz}
             onFinish={(score) => {
