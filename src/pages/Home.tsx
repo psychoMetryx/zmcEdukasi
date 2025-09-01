@@ -48,7 +48,7 @@ export default function Home() {
         id="disease-grid"
         className="border-t border-brand-surfaceMuted bg-brand-background py-8"
       >
-        <div className="container mx-auto grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="container mx-auto grid grid-cols-2 gap-6 px-4 md:grid-cols-3 lg:grid-cols-4">
           {wave1.map((disease) => (
             <DiseaseCard key={disease.slug} disease={disease} />
           ))}
