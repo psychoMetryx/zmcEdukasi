@@ -82,6 +82,7 @@ export default function Header() {
           <Link
             to="/"
             className="rounded px-3 py-2 text-sm font-medium hover:bg-brand-accent hover:text-brand-background focus:bg-brand-accent focus:text-brand-background"
+            onClick={() => setMenuOpen(false)}
           >
             {labels.home}
           </Link>

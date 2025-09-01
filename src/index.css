@@ -27,4 +27,8 @@
   html.large-text {
     font-size: 125%;
   }
+
+  body {
+    @apply leading-relaxed;
+  }
 }
