@@ -45,6 +45,8 @@ export default function Disease() {
     s?.faktorRisiko && { key: 'faktorRisiko', label: 'Faktor Risiko', content: renderList(s.faktorRisiko) },
     s?.gejala && { key: 'gejala', label: 'Gejala', content: renderList(s.gejala) },
     s?.tandaBahaya && { key: 'tandaBahaya', label: 'Tanda Bahaya', content: renderList(s.tandaBahaya) },
+    s?.pemeriksaan && { key: 'pemeriksaan', label: 'Pemeriksaan', content: renderList(s.pemeriksaan) },
+    s?.penanganan && { key: 'penanganan', label: 'Penanganan', content: renderList(s.penanganan) },
     s?.checklist && { key: 'checklist', label: 'Checklist', content: renderList(s.checklist) },
     s?.faq && { key: 'faq', label: 'FAQ', content: renderList(s.faq) },
     disease.quiz && {
