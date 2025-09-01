@@ -25,8 +25,10 @@ describe('Home page', () => {
     )
 
     expect(await screen.findByText('Ringkasan Aktivitas')).toBeInTheDocument()
-    expect(await screen.findByText('Halaman penyakit dikunjungi: 1 kali')).toBeInTheDocument()
-    expect(await screen.findByText('Kuis diselesaikan: 1 kali')).toBeInTheDocument()
+    const moduleText = await screen.findByText('Modul dibuka')
+    const quizText = await screen.findByText('Kuis diisi')
+    expect(moduleText.previousSibling?.textContent).toBe('1')
+    expect(quizText.previousSibling?.textContent).toBe('1')
 
     await user.click(screen.getByRole('link', { name: /asam urat/i }))
     expect(screen.getByText('Mock Disease Page')).toBeInTheDocument()
