@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { getDiseaseBySlug } from '../data/diseases'
+import Quiz from '../components/Quiz'
 
 function renderList(title: string, items?: string[]) {
   if (!items || items.length === 0) return null
@@ -50,6 +51,17 @@ export default function Disease() {
       {renderList('Penanganan', s?.penanganan)}
       {renderList('Checklist', s?.checklist)}
       {renderList('FAQ', s?.faq)}
+      {disease.quiz && (
+        <details className="mb-4">
+          <summary className="cursor-pointer font-semibold">Kuis</summary>
+          <Quiz
+            questions={disease.quiz}
+            onFinish={(score) =>
+              localStorage.setItem(`quiz:zmc:${disease.slug}`, String(score))
+            }
+          />
+        </details>
+      )}
     </article>
   )
 }
