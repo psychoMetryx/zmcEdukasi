@@ -29,6 +29,24 @@
   }
 
   body {
-    @apply leading-relaxed;
+    line-height: 1.625;
+    font-family: var(--font-brand);
+    background-color: var(--color-brand-background);
+    color: var(--color-brand-foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-brand-secondary);
+  }
+
+  ul {
+    list-style: disc;
+    padding-inline-start: 1rem;
   }
 }
