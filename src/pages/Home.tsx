@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import DiseaseCard from '../components/DiseaseCard'
+import Section from '../components/Section'
 import { diseases } from '../data/diseases'
 import { getEvents } from '../utils/analytics'
 
@@ -29,31 +30,32 @@ export default function Home() {
   const letters = ['', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')]
 
   return (
-    <div className="space-y-8">
-      <section className="bg-gradient-to-r from-brand-primary to-brand-accent py-12 text-center text-brand-background">
-        <h1 className="mb-4 text-3xl font-heading font-bold">Beranda</h1>
-        <p className="mx-auto mb-6 max-w-2xl">
-          Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
-          penanganannya.
-        </p>
-        <div className="flex justify-center gap-2">
-          <a
-            href="#disease-grid"
-            className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
-          >
-            Mulai Belajar
-          </a>
-          <a
-            href="#danger"
-            className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
-          >
-            Tanda Bahaya
-          </a>
+    <div>
+      <section className="bg-gradient-to-r from-brand-primary to-brand-accent text-brand-background">
+        <div className="mx-auto max-w-4xl py-12 text-center">
+          <h1 className="mb-4 text-3xl font-heading font-bold">Beranda</h1>
+          <p className="mx-auto mb-6 max-w-2xl">
+            Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
+            penanganannya.
+          </p>
+          <div className="flex justify-center gap-2">
+            <a
+              href="#disease-grid"
+              className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+            >
+              Mulai Belajar
+            </a>
+            <a
+              href="#danger"
+              className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+            >
+              Tanda Bahaya
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="container mx-auto px-4">
-        <h2 className="mb-2 font-heading font-semibold">Ringkasan Aktivitas</h2>
+      <Section title="Ringkasan Aktivitas">
         <div className="grid grid-cols-2 gap-4">
           <div className="rounded-lg bg-brand-surface p-4 text-center">
             <p className="text-2xl font-bold">{summary.diseaseViews}</p>
@@ -64,9 +66,9 @@ export default function Home() {
             <p className="text-sm">Kuis diisi</p>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="container mx-auto px-4 space-y-4">
+      <Section className="space-y-4">
         <input
           type="search"
           value={search}
@@ -89,9 +91,9 @@ export default function Home() {
             </button>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section id="danger" className="container mx-auto px-4">
+      <Section id="danger">
         <div className="rounded-lg border border-red-300 bg-red-50 p-4 text-red-800">
           <h2 className="font-heading font-semibold">
             Tanda Bahaya — kapan harus ke UGD?
@@ -102,18 +104,18 @@ export default function Home() {
             cari pertolongan.
           </p>
         </div>
-      </section>
+      </Section>
 
-      <section
+      <Section
         id="disease-grid"
-        className="border-t border-brand-surfaceMuted bg-brand-background py-8"
+        className="border-t border-brand-surfaceMuted bg-brand-background"
       >
-        <div className="container mx-auto grid grid-cols-2 gap-6 px-4 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
           {filtered.map((disease) => (
             <DiseaseCard key={disease.slug} disease={disease} />
           ))}
         </div>
-      </section>
+      </Section>
     </div>
   )
 }
