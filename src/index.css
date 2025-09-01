@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html.high-contrast {
+    background-color: #000;
+    color: #fff;
+  }
+
+  html.large-text {
+    font-size: 125%;
+  }
+}
