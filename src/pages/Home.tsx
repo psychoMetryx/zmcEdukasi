@@ -20,15 +20,15 @@ export default function Home() {
 
   return (
     <div className="space-y-8">
-      <section className="bg-brand-surface py-12 text-center">
+      <section className="bg-gradient-to-r from-brand-primary to-brand-accent py-12 text-center text-brand-background">
         <h1 className="mb-4 text-3xl font-heading font-bold">Beranda</h1>
-        <p className="mx-auto mb-6 max-w-2xl text-brand-secondary">
+        <p className="mx-auto mb-6 max-w-2xl">
           Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
           penanganannya.
         </p>
         <a
           href="#disease-grid"
-          className="inline-block rounded bg-brand-primary px-6 py-3 font-heading font-semibold text-brand-background"
+          className="inline-block rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
         >
           Mulai Belajar
         </a>
