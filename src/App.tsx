@@ -1,7 +1,13 @@
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Container from './components/Container'
+
 export default function App() {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">ZMC Edukasi</h1>
-    </div>
+    <Container>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Container>
   )
 }
