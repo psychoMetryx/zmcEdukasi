@@ -11,24 +11,42 @@ export function generateLeafletPDF(disease: Disease) {
 
   if (disease.slug === 'hipertensi' && s) {
     let y = 20
+    const margin = 10
+    const lineHeight = 6
+    const pageHeight = doc.internal.pageSize.getHeight()
+
+    const ensureSpace = (lines = 1) => {
+      if (y + lineHeight * lines > pageHeight - margin) {
+        doc.addPage()
+        y = margin
+      }
+    }
+
     const addSection = (title: string, content?: string | string[]) => {
       if (!content) return
+
+      const lines = Array.isArray(content)
+        ? content
+        : doc.splitTextToSize(content, 190)
+
+      // ensure the whole section fits on the current page
+      ensureSpace(lines.length + 1)
+
       doc.setFont(undefined, 'bold')
       doc.text(title, 10, y)
       doc.setFont(undefined, 'normal')
-      y += 6
-      if (Array.isArray(content)) {
-        content.forEach((item) => {
-          doc.text(`- ${item}`, 12, y)
-          y += 6
-        })
-      } else {
-        const lines = doc.splitTextToSize(content, 190)
-        lines.forEach((line) => {
+      y += lineHeight
+
+      lines.forEach((line) => {
+        ensureSpace()
+        if (Array.isArray(content)) {
+          doc.text(`- ${line}`, 12, y)
+        } else {
           doc.text(line, 10, y)
-          y += 6
-        })
-      }
+        }
+        y += lineHeight
+      })
+
       y += 4
     }
 
