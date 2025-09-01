@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { getDiseaseBySlug } from '../data/diseases'
 import Quiz from '../components/Quiz'
+import { generateLeafletPDF } from '../utils/leaflet'
 
 function renderList(title: string, items?: string[]) {
   if (!items || items.length === 0) return null
@@ -37,6 +38,12 @@ export default function Disease() {
   return (
     <article>
       <h1 className="mb-4 text-xl font-semibold">{disease.name}</h1>
+      <button
+        onClick={() => generateLeafletPDF(disease)}
+        className="mb-4 rounded bg-blue-600 px-4 py-2 text-white"
+      >
+        Unduh Leaflet (PDF)
+      </button>
       {s?.header && <p className="mb-4">{s.header}</p>}
       {s?.apaItu && (
         <section className="mb-4">
