@@ -224,7 +224,7 @@ Buat & ubah file berikut (root repo):
 - package.json dengan scripts: "dev", "build", "preview".
 - index.html standar Vite.
 - vite.config.ts memakai @vitejs/plugin-react dan vite-plugin-pwa (register SW otomatis, manifest name “ZMC Edukasi”, themeColor hijau kebiruan).
-- tailwind.config.js (content: ./index.html, ./src/**/*.{js,ts,jsx,tsx}), postcss.config.js.
+- tailwind.config.ts (content: ./index.html, ./src/**/*.{js,ts,jsx,tsx}), postcss.config.js.
 - src/main.tsx, src/App.tsx.
 - src/index.css berisi @tailwind base; @tailwind components; @tailwind utilities;.
 - public/ dengan icon PWA placeholder (192, 512).
