@@ -3,6 +3,7 @@ export interface Disease {
   name: string;
   summary: string;
   wave: number;
+  image?: string;
   sections?: {
     header?: string;
     apaItu?: string;
