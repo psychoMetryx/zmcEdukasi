@@ -31,6 +31,9 @@
   body {
     line-height: 1.625;
     font-family: var(--font-brand);
+  }
+
+  html:not(.high-contrast) body {
     background-color: var(--color-brand-background);
     color: var(--color-brand-foreground);
   }
