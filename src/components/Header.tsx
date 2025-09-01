@@ -40,10 +40,10 @@ export default function Header() {
 
   return (
     <header
-      className={`${highContrast ? 'bg-black text-white' : 'bg-sky-700 text-white'}`}
+      className={`${highContrast ? 'bg-black text-white' : 'bg-brand-primary text-brand-background'}`}
     >
       <div className="mx-auto flex max-w-4xl items-center justify-between p-4">
-        <Link to="/" className="text-base font-bold">
+        <Link to="/" className="text-base font-bold font-heading">
           {labels.appTitle}
         </Link>
         <nav className="flex items-center gap-2">
@@ -71,7 +71,7 @@ export default function Header() {
           <label className="text-sm">
             {labels.language}
             <select
-              className="ml-1 text-black"
+              className="ml-1 text-brand-foreground"
               value={lang}
               onChange={(e) => setLang(e.target.value as Lang)}
             >

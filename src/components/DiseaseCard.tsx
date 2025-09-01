@@ -10,10 +10,10 @@ export default function DiseaseCard({ disease }: DiseaseCardProps) {
     <Link
       to={`/disease/${disease.slug}`}
       role="link"
-      className="block rounded-2xl shadow p-4 transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="block rounded-2xl shadow p-4 transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
     >
       <h2 className="mb-1 text-lg font-semibold">{disease.name}</h2>
-      <p className="text-sm text-gray-600">{disease.summary}</p>
+      <p className="text-sm text-brand-muted">{disease.summary}</p>
     </Link>
   )
 }

@@ -20,10 +20,10 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="mb-4 text-xl font-semibold">Beranda</h1>
+      <h1 className="mb-4 text-xl font-heading font-semibold">Beranda</h1>
       {(summary.diseaseViews > 0 || summary.quizFinish > 0) && (
         <div className="mb-4">
-          <h2 className="font-semibold">Ringkasan Aktivitas</h2>
+          <h2 className="font-heading font-semibold">Ringkasan Aktivitas</h2>
           <ul className="list-disc pl-4">
             <li>Halaman penyakit dikunjungi: {summary.diseaseViews} kali</li>
             <li>Kuis diselesaikan: {summary.quizFinish} kali</li>

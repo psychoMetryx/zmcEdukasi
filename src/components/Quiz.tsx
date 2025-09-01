@@ -78,7 +78,7 @@ export default function Quiz({ questions, onFinish }: QuizProps) {
       <button
         disabled={selected[current] === -1}
         onClick={nextQuestion}
-        className="rounded bg-blue-600 px-3 py-1 text-white disabled:opacity-50"
+        className="rounded bg-brand-primary px-3 py-1 text-brand-background disabled:opacity-50"
       >
         {current === questions.length - 1 ? 'Selesai' : 'Lanjut'}
       </button>
