@@ -14,6 +14,11 @@ export interface Disease {
     checklist?: string[];
     faq?: string[];
   };
+  quiz?: {
+    question: string;
+    options: string[];
+    answer: number;
+  }[];
 }
 
 export const diseases: Disease[] = [
@@ -128,6 +133,33 @@ export const diseases: Disease[] = [
         '"Kapan ke UGD?" → Saat muncul tanda bahaya.',
       ],
     },
+    quiz: [
+      {
+        question: 'Berapa batas tekanan darah untuk diagnosis hipertensi?',
+        options: ['≥140/90 mmHg', '≥120/80 mmHg', '≥160/100 mmHg', '≥100/70 mmHg'],
+        answer: 0,
+      },
+      {
+        question: 'Faktor risiko utama hipertensi berikut adalah?',
+        options: ['Konsumsi garam tinggi', 'Olahraga teratur', 'Berat badan ideal', 'Tidur cukup'],
+        answer: 0,
+      },
+      {
+        question: 'Tanda bahaya hipertensi yang memerlukan UGD adalah?',
+        options: ['Nyeri dada', 'Pusing ringan', 'Keringat dingin', 'Kaki bengkak'],
+        answer: 0,
+      },
+      {
+        question: 'Batas konsumsi garam per hari untuk penderita hipertensi?',
+        options: ['<2 gram natrium', '<5 gram natrium', '<10 gram natrium', '<1 gram natrium'],
+        answer: 0,
+      },
+      {
+        question: 'Durasi olahraga aerobik yang dianjurkan per minggu?',
+        options: ['150 menit', '60 menit', '300 menit', '30 menit'],
+        answer: 0,
+      },
+    ],
   },
   {
     slug: 'isk',
