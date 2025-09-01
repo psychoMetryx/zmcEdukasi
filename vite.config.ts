@@ -7,6 +7,26 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      includeAssets: ['offline.html'],
+      workbox: {
+        navigateFallback: '/offline.html',
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname === '/',
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'home-cache'
+            }
+          },
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/disease'),
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'disease-cache'
+            }
+          }
+        ]
+      },
       manifest: {
         name: 'ZMC Edukasi',
         short_name: 'ZMC Edukasi',
