@@ -9,6 +9,8 @@ export default function Home() {
     diseaseViews: 0,
     quizFinish: 0,
   })
+  const [search, setSearch] = useState('')
+  const [letter, setLetter] = useState('')
 
   useEffect(() => {
     const events = getEvents()
@@ -18,6 +20,14 @@ export default function Home() {
     })
   }, [])
 
+  const filtered = wave1.filter((d) => {
+    const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
+    const matchLetter = letter ? d.name.toLowerCase().startsWith(letter.toLowerCase()) : true
+    return matchSearch && matchLetter
+  })
+
+  const letters = ['', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')]
+
   return (
     <div className="space-y-8">
       <section className="bg-gradient-to-r from-brand-primary to-brand-accent py-12 text-center text-brand-background">
@@ -26,30 +36,80 @@ export default function Home() {
           Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
           penanganannya.
         </p>
-        <a
-          href="#disease-grid"
-          className="inline-block rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
-        >
-          Mulai Belajar
-        </a>
+        <div className="flex justify-center gap-2">
+          <a
+            href="#disease-grid"
+            className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+          >
+            Mulai Belajar
+          </a>
+          <a
+            href="#danger"
+            className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+          >
+            Tanda Bahaya
+          </a>
+        </div>
       </section>
 
-      {(summary.diseaseViews > 0 || summary.quizFinish > 0) && (
-        <section className="container mx-auto px-4">
-          <h2 className="font-heading font-semibold">Ringkasan Aktivitas</h2>
-          <ul className="list-disc pl-4">
-            <li>Halaman penyakit dikunjungi: {summary.diseaseViews} kali</li>
-            <li>Kuis diselesaikan: {summary.quizFinish} kali</li>
-          </ul>
-        </section>
-      )}
+      <section className="container mx-auto px-4">
+        <h2 className="mb-2 font-heading font-semibold">Ringkasan Aktivitas</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="rounded-lg bg-brand-surface p-4 text-center">
+            <p className="text-2xl font-bold">{summary.diseaseViews}</p>
+            <p className="text-sm">Modul dibuka</p>
+          </div>
+          <div className="rounded-lg bg-brand-surface p-4 text-center">
+            <p className="text-2xl font-bold">{summary.quizFinish}</p>
+            <p className="text-sm">Kuis diisi</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 space-y-4">
+        <input
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Cari penyakit (mis. hipertensi, diabetes)"
+          className="w-full rounded border border-brand-surfaceMuted p-2"
+        />
+        <div className="flex flex-wrap gap-2">
+          {letters.map((l) => (
+            <button
+              key={l || 'all'}
+              onClick={() => setLetter(l)}
+              className={`rounded-full px-3 py-1 text-sm ${
+                letter === l
+                  ? 'bg-brand-primary text-brand-background'
+                  : 'bg-brand-surface text-brand-foreground'
+              }`}
+            >
+              {l || 'Semua'}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section id="danger" className="container mx-auto px-4">
+        <div className="rounded-lg border border-red-300 bg-red-50 p-4 text-red-800">
+          <h2 className="font-heading font-semibold">
+            Tanda Bahaya — kapan harus ke UGD?
+          </h2>
+          <p className="mt-2 text-sm">
+            Lumpuh/bicara pelo mendadak, nyeri dada hebat, sesak berat, demam
+            tinggi pada bayi, kejang lama, perdarahan hebat. Jangan tunda, segera
+            cari pertolongan.
+          </p>
+        </div>
+      </section>
 
       <section
         id="disease-grid"
         className="border-t border-brand-surfaceMuted bg-brand-background py-8"
       >
         <div className="container mx-auto grid grid-cols-2 gap-6 px-4 md:grid-cols-3 lg:grid-cols-4">
-          {wave1.map((disease) => (
+          {filtered.map((disease) => (
             <DiseaseCard key={disease.slug} disease={disease} />
           ))}
         </div>
