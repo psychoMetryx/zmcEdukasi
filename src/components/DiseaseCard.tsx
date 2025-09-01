@@ -12,7 +12,7 @@ export default function DiseaseCard({ disease }: DiseaseCardProps) {
       role="link"
       className="group block overflow-hidden rounded-2xl border border-brand-surfaceMuted bg-brand-surface shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
     >
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative overflow-hidden [aspect-ratio:16/9]">
         {disease.image ? (
           <img
             src={disease.image}
