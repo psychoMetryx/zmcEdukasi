@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-brand-primary: #0369a1;
+  --color-brand-accent: #0d9488;
+  --color-brand-background: #ffffff;
+  --color-brand-surface: #f3f4f6;
+  --color-brand-surface-muted: #e5e7eb;
+  --color-brand-foreground: #111827;
+  --color-brand-secondary: #374151;
+  --color-brand-muted: #4b5563;
+  --font-brand: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --spacing-18: 4.5rem;
+  --spacing-128: 32rem;
+  --spacing-144: 36rem;
+}
+
 @layer base {
   html.high-contrast {
     background-color: #000;
