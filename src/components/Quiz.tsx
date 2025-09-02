@@ -60,7 +60,7 @@ export default function Quiz({ questions, onFinish }: QuizProps) {
       <p className="mb-2">
         {current + 1}. {q.question}
       </p>
-      <ul className="mb-2">
+      <ul className="mb-2 list-disc pl-4">
         {q.options.map((opt, i) => (
           <li key={i} className="mb-1">
             <label className="flex items-center gap-2">
