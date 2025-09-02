@@ -90,8 +90,4 @@
     font-family: var(--font-heading);
     color: var(--color-brand-secondary);
   }
-
-  ul {
-    @apply list-disc pl-4;
-  }
 }
