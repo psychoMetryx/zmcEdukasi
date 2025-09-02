@@ -3,6 +3,7 @@ import DiseaseCard from '../components/DiseaseCard'
 import Section from '../components/Section'
 import { diseases } from '../data/diseases'
 import { getEvents } from '../utils/analytics'
+import { getLabels, Lang } from '../i18n'
 
 export default function Home() {
   const wave1 = diseases.filter((d) => d.wave === 1)
@@ -28,12 +29,13 @@ export default function Home() {
   })
 
   const letters = ['', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')]
+  const labels = getLabels((localStorage.getItem('ui:lang') as Lang) || 'id')
 
   return (
     <div>
-      <div className="bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-3xl p-6 md:p-8 shadow-xl">
+      <div className="bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-3xl p-6 md:p-8 shadow-xl select-none">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-4 text-3xl font-heading font-bold">Beranda</h1>
+          <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
           <p className="mx-auto mb-6 max-w-2xl">
             Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
             penanganannya.
