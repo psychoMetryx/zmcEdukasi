@@ -81,11 +81,12 @@ export default function Home() {
             <button
               key={l || 'all'}
               onClick={() => setLetter(l)}
-              className={`rounded-full px-3 py-1 text-sm ${
+              className={[
+                'rounded-full px-3 py-1 text-sm',
                 letter === l
                   ? 'bg-brand-primary text-brand-background'
-                  : 'bg-brand-surface text-brand-foreground'
-              }`}
+                  : 'bg-brand-surface text-brand-foreground',
+              ].join(' ')}
             >
               {l || 'Semua'}
             </button>
