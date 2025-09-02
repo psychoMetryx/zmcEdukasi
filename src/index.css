@@ -22,6 +22,52 @@
   html.high-contrast {
     background-color: #000;
     color: #fff;
+    --color-brand-primary: #fff;
+    --color-brand-accent: #000;
+    --color-brand-background: #000;
+    --color-brand-surface: #000;
+    --color-brand-surfaceMuted: #222;
+    --color-brand-foreground: #fff;
+    --color-brand-secondary: #fff;
+    --color-brand-muted: #ccc;
+  }
+
+  html.high-contrast body {
+    background: #000;
+    color: #fff;
+  }
+
+  html.high-contrast .bg-brand-background,
+  html.high-contrast .bg-brand-primary,
+  html.high-contrast .bg-brand-accent,
+  html.high-contrast .bg-brand-surface,
+  html.high-contrast .bg-brand-surfaceMuted {
+    background-color: #000;
+  }
+
+  html.high-contrast .text-brand-background,
+  html.high-contrast .text-brand-primary,
+  html.high-contrast .text-brand-accent,
+  html.high-contrast .text-brand-foreground,
+  html.high-contrast .text-brand-secondary {
+    color: #fff;
+  }
+
+  html.high-contrast .text-brand-muted {
+    color: #ccc;
+  }
+
+  html.high-contrast .border-brand-primary,
+  html.high-contrast .border-brand-surfaceMuted {
+    border-color: #fff;
+  }
+
+  html.high-contrast .from-brand-primary {
+    --tw-gradient-from: #000;
+  }
+
+  html.high-contrast .to-brand-accent {
+    --tw-gradient-to: #000;
   }
 
   html.large-text {

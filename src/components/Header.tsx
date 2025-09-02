@@ -77,7 +77,7 @@ export default function Header() {
           </svg>
         </button>
         <nav
-          className={`${menuOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-2 bg-brand-primary px-4 pb-4 md:static md:flex md:w-auto md:flex-row md:items-center md:gap-2 md:bg-transparent md:p-0`}
+          className={`${menuOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-2 px-4 pb-4 ${highContrast ? 'bg-black text-white' : 'bg-brand-primary'} md:static md:flex md:w-auto md:flex-row md:items-center md:gap-2 md:bg-transparent md:p-0`}
         >
           <Link
             to="/"
@@ -107,7 +107,7 @@ export default function Header() {
           <label className="flex items-center rounded px-3 py-2 text-sm hover:bg-brand-accent/20 focus-within:bg-brand-accent/20">
             {labels.language}
             <select
-              className="ml-1 text-brand-foreground"
+              className={`ml-1 ${highContrast ? 'bg-black text-white' : 'text-brand-foreground'}`}
               value={lang}
               onChange={(e) => setLang(e.target.value as Lang)}
             >
