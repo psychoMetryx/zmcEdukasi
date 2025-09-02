@@ -48,7 +48,7 @@ export default function Header() {
           {labels.appTitle}
         </Link>
         <button
-          className="rounded p-2 hover:bg-brand-accent/20 focus:bg-brand-accent/20 focus:outline-none md:hidden"
+          className="rounded p-2 hover:bg-brand-accent/20 focus:bg-brand-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent md:hidden"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle navigation"
         >
