@@ -1,7 +1,5 @@
 const CACHE_NAME = 'zmc-cache-v1';
 const CORE_ASSETS = [
-  '/',
-  '/index.html',
   '/offline.html',
   '/offline.css'
 ];
@@ -22,16 +20,15 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match('/offline.html'))
+    );
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return (
-        response ||
-        fetch(event.request).catch(() => {
-          if (event.request.mode === 'navigate') {
-            return caches.match('/offline.html');
-          }
-        })
-      );
-    })
+    caches.match(event.request).then((response) => response || fetch(event.request))
   );
 });
