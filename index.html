@@ -18,6 +18,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const root = document.documentElement;
+      if (localStorage.getItem('a11y:zmc:contrast') === '1')
+        root.classList.add('high-contrast');
+      if (localStorage.getItem('a11y:zmc:font') === '1')
+        root.classList.add('large-text');
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

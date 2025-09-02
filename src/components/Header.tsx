@@ -17,22 +17,10 @@ export default function Header() {
 
   useEffect(() => {
     localStorage.setItem('a11y:zmc:contrast', highContrast ? '1' : '0')
-    const cls = 'high-contrast'
-    if (highContrast) {
-      document.documentElement.classList.add(cls)
-    } else {
-      document.documentElement.classList.remove(cls)
-    }
   }, [highContrast])
 
   useEffect(() => {
     localStorage.setItem('a11y:zmc:font', largeText ? '1' : '0')
-    const cls = 'large-text'
-    if (largeText) {
-      document.documentElement.classList.add(cls)
-    } else {
-      document.documentElement.classList.remove(cls)
-    }
   }, [largeText])
 
   useEffect(() => {
@@ -91,7 +79,11 @@ export default function Header() {
               type="checkbox"
               className="mr-1"
               checked={highContrast}
-              onChange={(e) => setHighContrast(e.target.checked)}
+              onChange={(e) => {
+                const checked = e.target.checked
+                setHighContrast(checked)
+                document.documentElement.classList.toggle('high-contrast', checked)
+              }}
             />
             {labels.highContrast}
           </label>
@@ -100,7 +92,11 @@ export default function Header() {
               type="checkbox"
               className="mr-1"
               checked={largeText}
-              onChange={(e) => setLargeText(e.target.checked)}
+              onChange={(e) => {
+                const checked = e.target.checked
+                setLargeText(checked)
+                document.documentElement.classList.toggle('large-text', checked)
+              }}
             />
             {labels.largeText}
           </label>
