@@ -8,13 +8,24 @@
       type="image/svg+xml"
       href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIDAgMTkyIDE5MiI+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIGZpbGw9IiMwZDk0ODgiLz48L3N2Zz4="
     />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#10b981" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>html{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}</style>
     <title>ZMC Edukasi</title>
   </head>
   <body>
     <div id="root"></div>
+    <button
+      id="installApp"
+      class="hidden fixed bottom-4 right-4 px-4 py-2 rounded-xl bg-emerald-600 text-white shadow"
+    >
+      Install aplikasi
+    </button>
     <script>
       const root = document.documentElement;
       if (localStorage.getItem('a11y:zmc:contrast') === '1')
@@ -23,5 +34,29 @@
         root.classList.add('large-text');
     </script>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      let deferredPrompt;
+      const installButton = document.getElementById('installApp');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installButton.classList.remove('hidden');
+      });
+
+      installButton.addEventListener('click', async () => {
+        installButton.classList.add('hidden');
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      });
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () =>
+          navigator.serviceWorker.register('/sw.js')
+        );
+      }
+    </script>
   </body>
 </html>
