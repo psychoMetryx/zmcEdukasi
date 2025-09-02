@@ -31,14 +31,14 @@ export default function Home() {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-brand-primary to-brand-accent text-brand-background">
-        <div className="mx-auto max-w-4xl py-12 text-center">
+      <div className="bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-3xl p-6 md:p-8 shadow-xl">
+        <div className="mx-auto max-w-4xl text-center">
           <h1 className="mb-4 text-3xl font-heading font-bold">Beranda</h1>
           <p className="mx-auto mb-6 max-w-2xl">
             Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
             penanganannya.
           </p>
-          <div className="flex justify-center gap-2">
+          <div className="flex gap-3">
             <a
               href="#disease-grid"
               className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
@@ -53,10 +53,10 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </div>
 
       <Section title="Ringkasan Aktivitas">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-4 mt-6">
           <div className="rounded-lg bg-brand-surface p-4 text-center">
             <p className="text-2xl font-bold">{summary.diseaseViews}</p>
             <p className="text-sm">Modul dibuka</p>
@@ -74,9 +74,9 @@ export default function Home() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Cari penyakit (mis. hipertensi, diabetes)"
-          className="w-full rounded border border-brand-surfaceMuted p-2"
+          className="w-full rounded-full px-5 py-3 border"
         />
-        <div className="flex flex-wrap gap-2">
+        <div className="flex gap-2 overflow-x-auto">
           {letters.map((l) => (
             <button
               key={l || 'all'}

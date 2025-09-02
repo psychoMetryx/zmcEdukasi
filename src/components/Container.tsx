@@ -6,7 +6,7 @@ export default function Container({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-brand-background text-brand-foreground font-brand antialiased">
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 max-w-screen-md mx-auto px-4 py-6">{children}</main>
       <Footer />
     </div>
   )
