@@ -31,7 +31,7 @@ export default function InstallPrompt() {
   if (!visible) return null
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="rounded bg-brand-background p-4 shadow">
         <p className="mb-4 text-brand-foreground">Install aplikasi ini?</p>
         <div className="flex justify-end gap-2">
