@@ -38,8 +38,12 @@ export default function Header() {
       )}
     >
       <div className="relative mx-auto flex max-w-4xl items-center justify-between p-4">
-        <Link to="/" className="text-base font-bold font-heading">
-          {labels.appTitle}
+        <Link to="/" className="flex items-center" aria-label={labels.appTitle}>
+          <img
+            src="https://i.imgur.com/k7206jf.png"
+            alt={labels.appTitle}
+            className="h-8"
+          />
         </Link>
         <button
           className="rounded p-2 hover:bg-brand-accent/20 focus:bg-brand-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent md:hidden"
