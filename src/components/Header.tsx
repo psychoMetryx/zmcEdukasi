@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import clsx from 'clsx'
 import { getLabels, Lang } from '../i18n'
 
 export default function Header() {
@@ -29,7 +30,12 @@ export default function Header() {
 
   return (
     <header
-      className={`${highContrast ? 'bg-black text-white' : 'bg-brand-primary text-brand-background'} font-brand`}
+      className={clsx(
+        highContrast
+          ? 'bg-black text-white'
+          : 'bg-brand-primary text-brand-background',
+        'font-brand'
+      )}
     >
       <div className="relative mx-auto flex max-w-4xl items-center justify-between p-4">
         <Link to="/" className="text-base font-bold font-heading">
@@ -65,7 +71,11 @@ export default function Header() {
           </svg>
         </button>
         <nav
-          className={`${menuOpen ? 'flex' : 'hidden'} absolute left-0 top-full w-full flex-col gap-2 px-4 pb-4 ${highContrast ? 'bg-black text-white' : 'bg-brand-primary'} md:static md:flex md:w-auto md:flex-row md:items-center md:gap-2 md:bg-transparent md:p-0`}
+          className={clsx(
+            menuOpen ? 'flex' : 'hidden',
+            highContrast ? 'bg-black text-white' : 'bg-brand-primary',
+            'absolute left-0 top-full w-full flex-col gap-2 px-4 pb-4 md:static md:flex md:w-auto md:flex-row md:items-center md:gap-2 md:bg-transparent md:p-0'
+          )}
         >
           <Link
             to="/"
@@ -103,7 +113,10 @@ export default function Header() {
           <label className="flex items-center rounded px-3 py-2 text-sm hover:bg-brand-accent/20 focus-within:bg-brand-accent/20">
             {labels.language}
             <select
-              className={`ml-1 ${highContrast ? 'bg-black text-white' : 'text-brand-foreground'}`}
+              className={clsx(
+                'ml-1',
+                highContrast ? 'bg-black text-white' : 'text-brand-foreground'
+              )}
               value={lang}
               onChange={(e) => setLang(e.target.value as Lang)}
             >
