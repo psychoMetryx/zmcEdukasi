@@ -34,41 +34,45 @@ export default function Home() {
   return (
     <div>
       <div className="bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-3xl p-6 md:p-8 shadow-xl select-none">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
-          <p className="mx-auto mb-6 max-w-2xl">
-            Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
-            penanganannya.
-          </p>
-          <div className="flex gap-3">
-            <a
-              href="#disease-grid"
-              className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
-            >
-              Mulai Belajar
-            </a>
-            <a
-              href="#danger"
-              className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
-            >
-              Tanda Bahaya
-            </a>
+        <div className="mx-auto max-w-4xl text-center md:grid md:grid-cols-2 md:items-center md:gap-8 md:text-left">
+          <div>
+            <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
+            <p className="mx-auto mb-6 max-w-2xl md:mx-0">
+              Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
+              penanganannya.
+            </p>
+            <div className="flex justify-center gap-3 md:justify-start">
+              <a
+                href="#disease-grid"
+                className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+              >
+                Mulai Belajar
+              </a>
+              <a
+                href="#danger"
+                className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+              >
+                Tanda Bahaya
+              </a>
+            </div>
+          </div>
+          <div className="mt-6 md:mt-0">
+            <h2 className="mb-4 text-xl font-heading font-semibold text-center md:text-left">
+              Ringkasan Aktivitas
+            </h2>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-lg bg-brand-background p-4 text-center text-brand-foreground">
+                <p className="text-2xl font-bold">{summary.diseaseViews}</p>
+                <p className="text-sm">Modul dibuka</p>
+              </div>
+              <div className="rounded-lg bg-brand-background p-4 text-center text-brand-foreground">
+                <p className="text-2xl font-bold">{summary.quizFinish}</p>
+                <p className="text-sm">Kuis diisi</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <Section title="Ringkasan Aktivitas">
-        <div className="grid md:grid-cols-2 gap-4 mt-6">
-          <div className="rounded-lg bg-brand-surface p-4 text-center">
-            <p className="text-2xl font-bold">{summary.diseaseViews}</p>
-            <p className="text-sm">Modul dibuka</p>
-          </div>
-          <div className="rounded-lg bg-brand-surface p-4 text-center">
-            <p className="text-2xl font-bold">{summary.quizFinish}</p>
-            <p className="text-sm">Kuis diisi</p>
-          </div>
-        </div>
-      </Section>
 
       <Section className="space-y-4">
         <input
