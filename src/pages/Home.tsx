@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import DiseaseCard from '../components/DiseaseCard'
 import Section from '../components/Section'
 import { diseases } from '../data/diseases'
@@ -54,6 +55,12 @@ export default function Home() {
               >
                 Tanda Bahaya
               </a>
+              <Link
+                to="/posts"
+                className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+              >
+                Posting
+              </Link>
             </div>
           </div>
           <div className="mt-6 md:mt-0">
