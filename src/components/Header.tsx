@@ -40,7 +40,7 @@ export default function Header() {
       <div className="relative mx-auto flex max-w-4xl items-center justify-between p-4">
         <Link to="/" className="flex items-center" aria-label={labels.appTitle}>
           <img
-            src="https://i.imgur.com/k7206jf.png"
+            src="https://i.postimg.cc/HWJV3xpW/FB-IMG-1756806155300.png"
             alt={labels.appTitle}
             className="h-8"
           />
