@@ -4,4 +4,5 @@ export default {
   highContrast: 'Kontras Luhur',
   largeText: 'Téks Gedé',
   language: 'Basa',
+  posts: 'Tulisan',
 }

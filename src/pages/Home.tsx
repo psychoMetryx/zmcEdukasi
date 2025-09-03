@@ -39,15 +39,14 @@ export default function Home() {
           <div>
             <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
             <p className="mx-auto mb-6 max-w-2xl md:mx-0">
-              Temukan informasi ringkas mengenai berbagai penyakit umum dan cara
-              penanganannya.
+              Pelajari penyakit sehari-hari, pencegahannya, dan penanganannya.
             </p>
             <div className="flex justify-center gap-3 md:justify-start">
               <a
                 href="#disease-grid"
                 className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
               >
-                Mulai Belajar
+                Penyakit
               </a>
               <a
                 href="#danger"
@@ -63,18 +62,18 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="mt-6 md:mt-0">
-            <h2 className="mb-4 text-xl font-heading font-semibold text-center md:text-left">
+          <div className="mt-6 md:mt-0 md:ml-auto md:max-w-xs">
+            <h2 className="mb-2 text-lg font-heading font-semibold text-center md:text-left">
               Ringkasan Aktivitas
             </h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-lg bg-brand-background p-4 text-center text-brand-foreground">
-                <p className="text-2xl font-bold">{summary.diseaseViews}</p>
-                <p className="text-sm">Modul dibuka</p>
+            <div className="grid grid-cols-2 gap-2 text-sm">
+              <div className="rounded-lg bg-brand-background p-2 text-center text-brand-foreground">
+                <p className="text-xl font-bold">{summary.diseaseViews}</p>
+                <p>Modul dibuka</p>
               </div>
-              <div className="rounded-lg bg-brand-background p-4 text-center text-brand-foreground">
-                <p className="text-2xl font-bold">{summary.quizFinish}</p>
-                <p className="text-sm">Kuis diisi</p>
+              <div className="rounded-lg bg-brand-background p-2 text-center text-brand-foreground">
+                <p className="text-xl font-bold">{summary.quizFinish}</p>
+                <p>Kuis diisi</p>
               </div>
             </div>
           </div>
