@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getDiseaseBySlug } from '../data/diseases'
 import Quiz from '../components/Quiz'
@@ -61,7 +61,7 @@ export default function Disease() {
         />
       ),
     },
-  ].filter(Boolean) as { key: string; label: string; content: JSX.Element | null }[]
+  ].filter(Boolean) as { key: string; label: string; content: ReactNode }[]
 
   useEffect(() => {
     if (tab === '' && tabs.length > 0) {
