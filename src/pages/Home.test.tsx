@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
@@ -24,9 +24,12 @@ describe('Home page', () => {
       </MemoryRouter>
     )
 
-    expect(await screen.findByText('Ringkasan Aktivitas')).toBeInTheDocument()
-    const moduleText = await screen.findByText('Modul dibuka')
-    const quizText = await screen.findByText('Kuis diisi')
+    const summaryHeading = await screen.findByRole('heading', {
+      name: 'Ringkasan Aktivitas',
+    })
+    const summarySection = summaryHeading.parentElement as HTMLElement
+    const moduleText = within(summarySection).getByText('Modul dibuka')
+    const quizText = within(summarySection).getByText('Kuis diisi')
     expect(moduleText.previousSibling?.textContent).toBe('1')
     expect(quizText.previousSibling?.textContent).toBe('1')
 
