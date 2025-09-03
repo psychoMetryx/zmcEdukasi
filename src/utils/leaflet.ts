@@ -32,12 +32,12 @@ export function generateLeafletPDF(disease: Disease) {
       // ensure the whole section fits on the current page
       ensureSpace(lines.length + 1)
 
-      doc.setFont(undefined, 'bold')
+      doc.setFont('helvetica', 'bold')
       doc.text(title, 10, y)
-      doc.setFont(undefined, 'normal')
+      doc.setFont('helvetica', 'normal')
       y += lineHeight
 
-      lines.forEach((line) => {
+      lines.forEach((line: string) => {
         ensureSpace()
         if (Array.isArray(content)) {
           doc.text(`- ${line}`, 12, y)
