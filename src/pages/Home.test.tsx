@@ -1,25 +1,18 @@
-import { render, screen, within } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
-import { describe, it, expect, vi } from 'vitest'
-
-vi.mock('../utils/analytics', () => ({
-  getEvents: () => [
-    { name: 'disease_view', timestamp: 1 },
-    { name: 'quiz_finish', timestamp: 2 },
-  ],
-}))
+import { describe, it, expect } from 'vitest'
 
 import Home from './Home'
 
 describe('Home page', () => {
-  it('shows summary and navigates to disease page', async () => {
+  it('navigates to diseases page and shows article', async () => {
     const user = userEvent.setup()
     render(
       <MemoryRouter initialEntries={['/']}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/disease/:slug" element={<div>Mock Disease Page</div>} />
+          <Route path="/diseases" element={<div>Mock Diseases Page</div>} />
         </Routes>
       </MemoryRouter>
     )
@@ -30,16 +23,9 @@ describe('Home page', () => {
       )
     ).toBeInTheDocument()
 
-    const summaryHeading = await screen.findByRole('heading', {
-      name: 'Ringkasan Aktivitas',
-    })
-    const summarySection = summaryHeading.parentElement as HTMLElement
-    const moduleText = within(summarySection).getByText('Modul dibuka')
-    const quizText = within(summarySection).getByText('Kuis diisi')
-    expect(moduleText.previousSibling?.textContent).toBe('1')
-    expect(quizText.previousSibling?.textContent).toBe('1')
+    expect(screen.getByText('Selamat Datang')).toBeInTheDocument()
 
-    await user.click(screen.getByRole('link', { name: /asam urat/i }))
-    expect(screen.getByText('Mock Disease Page')).toBeInTheDocument()
+    await user.click(screen.getByRole('link', { name: /penyakit/i }))
+    expect(screen.getByText('Mock Diseases Page')).toBeInTheDocument()
   })
 })

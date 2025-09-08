@@ -1,6 +1,6 @@
 # Panduan Menambah Konten
 
-Panduan singkat untuk menambah entri **penyakit** dan **postingan** pada aplikasi.
+Panduan singkat untuk menambah entri **penyakit** dan **artikel** pada aplikasi.
 
 ## Menambah Entri Penyakit
 
@@ -8,7 +8,7 @@ Panduan singkat untuk menambah entri **penyakit** dan **postingan** pada aplikas
 2. Tambahkan objek baru ke array `diseases`.
    - Wajib: `slug` (kebab-case), `name`, `summary`, `wave`.
    - Opsional: `sections` (header, apaItu, faktorRisiko, gejala, tandaBahaya, pemeriksaan, penanganan, checklist, faq) dan `quiz`.
-3. Simpan berkas. Entri baru otomatis muncul di kartu penyakit pada beranda dan bisa diakses melalui rute `/disease/{slug}`.
+3. Simpan berkas. Entri baru otomatis muncul di halaman penyakit dan bisa diakses melalui rute `/diseases/{slug}`.
 
 Contoh:
 
@@ -21,21 +21,26 @@ Contoh:
 }
 ```
 
-## Menambah Postingan
+## Menambah Artikel
 
-1. Buka berkas `src/data/posts.ts`.
-2. Tambahkan objek baru ke array `posts`.
-   - Wajib: `slug` (kebab-case), `title`, `summary`, `content`.
-3. Simpan berkas. Postingan baru otomatis tampil di halaman daftar `/posts` dan dapat dibuka melalui `/posts/{slug}`.
+1. Buka berkas `src/data/articles.ts`.
+2. Tambahkan objek baru ke array `articles`.
+   - Wajib: `slug` (kebab-case), `title`, `summary`, `city`, `image`, dan `content` (array blok teks/gambar).
+3. Simpan berkas. Artikel baru otomatis tampil di beranda dan dapat dibuka melalui `/artikel/{slug}`.
 
 Contoh:
 
 ```ts
 {
-  slug: 'contoh-posting',
-  title: 'Contoh Posting',
-  summary: 'Ringkasan singkat posting.',
-  content: 'Isi lengkap posting.',
+  slug: 'contoh-artikel',
+  title: 'Contoh Artikel',
+  summary: 'Ringkasan singkat artikel.',
+  city: 'Bandung',
+  image: 'https://contoh.url/gambar.jpg',
+  content: [
+    { type: 'text', text: 'Isi teks' },
+    { type: 'image', src: 'https://contoh.url/foto.jpg' },
+  ],
 }
 ```
 

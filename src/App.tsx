@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Disease from './pages/Disease'
-import Posts from './pages/Posts'
-import Post from './pages/Post'
+import Diseases from './pages/Diseases'
+import Articles from './pages/Articles'
+import Article from './pages/Article'
 import Container from './components/Container'
 
 export default function App() {
@@ -10,9 +11,10 @@ export default function App() {
     <Container>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/disease/:slug" element={<Disease />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/posts/:slug" element={<Post />} />
+        <Route path="/diseases" element={<Diseases />} />
+        <Route path="/diseases/:slug" element={<Disease />} />
+        <Route path="/artikel" element={<Articles />} />
+        <Route path="/artikel/:slug" element={<Article />} />
       </Routes>
     </Container>
   )

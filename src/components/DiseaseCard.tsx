@@ -8,7 +8,7 @@ interface DiseaseCardProps {
 export default function DiseaseCard({ disease }: DiseaseCardProps) {
   return (
     <Link
-      to={`/disease/${disease.slug}`}
+      to={`/diseases/${disease.slug}`}
       role="link"
       className="group block overflow-hidden rounded-2xl border border-brand-surfaceMuted bg-brand-surface shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
     >

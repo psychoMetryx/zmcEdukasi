@@ -19,7 +19,7 @@ describe('DiseaseCard', () => {
     )
 
     const link = screen.getByRole('link', { name: /flu/i })
-    expect(link).toHaveAttribute('href', '/disease/flu')
+    expect(link).toHaveAttribute('href', '/diseases/flu')
     expect(screen.getByText('Flu summary')).toBeInTheDocument()
   })
 })

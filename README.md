@@ -239,7 +239,7 @@ Prompt:
 Tambahkan layout global sesuai README: header, konten, footer.
 - Header: judul “Aplikasi Edukasi Penyakit ZMC”, subjudul singkat.
 - Footer: disclaimer edukasi 1 baris + tahun.
-- Install react-router-dom; buat routing dasar / (Home) dan /disease/:slug.
+- Install react-router-dom; buat routing dasar / (Home) dan /diseases/:slug.
 - Buat komponen:
 - src/components/Header.tsx, Footer.tsx, Container.tsx.
 - Terapkan Tailwind (mobile-first, kontras tinggi, tombol besar).
@@ -265,14 +265,14 @@ Implementasikan Beranda dengan grid kartu penyakit:
 - Komponen DiseaseCard di src/components/DiseaseCard.tsx (props: name, summary, slug).
 - Grid: 2 kolom (≤640px), 3 kolom (≥768px), 4 kolom (≥1024px).
 - Gaya: rounded-2xl, shadow, hover:shadow-lg, focus ring; aksesibel (role=link).
-- Klik kartu → /disease/{slug}.
+- Klik kartu → /diseases/{slug}.
 Kriteria: Semua item Wave 1 tampil, layout responsif, Lighthouse a11y dasar ok.
 ---
 
 
 Task 5 — Halaman template penyakit (tab/accordion)
 Prompt:
-Buat halaman detail src/pages/Disease.tsx untuk route /disease/:slug.
+Buat halaman detail src/pages/Disease.tsx untuk route /diseases/:slug.
 - Ambil data dari getDiseaseBySlug.
 - Tampilkan tab atau accordion untuk: Apa itu, Penyebab & Faktor Risiko, Gejala, Tanda Bahaya, Pemeriksaan, Penanganan, Checklist, FAQ.
 - Bila slug tidak ditemukan → tampilkan 404 yang ramah.
@@ -305,7 +305,7 @@ Kriteria: File terunduh bernama leaflet-{slug}.pdf, teks terbaca jelas.
 Task 8 — PWA offline caching + fallback
 Prompt:
 Lengkapi konfigurasi vite-plugin-pwa:
-- Cache static assets, halaman /, rute /disease/*, dan file data diseases.ts hasil bundling.
+- Cache static assets, halaman /, rute /diseases/*, dan file data diseases.ts hasil bundling.
 - Tambahkan offline fallback sederhana (mis. halaman “Anda sedang offline”).
 - Registrasikan SW di main.tsx (skip waiting + prompt reload).
 Kriteria: Saat offline, beranda masih tampil dan halaman hipertensi dapat dibuka jika sudah pernah diakses.
