@@ -13,9 +13,11 @@ export default function Home() {
         <div className="mx-auto max-w-4xl text-center md:grid md:grid-cols-2 md:items-center md:gap-8 md:text-left">
           <div>
             <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
-            <p className="mx-auto mb-6 max-w-2xl whitespace-pre-line md:mx-0">
-              {labels.appDescription}
-            </p>
+            <div className="mx-auto mb-6 max-w-2xl space-y-1 md:mx-0">
+              {labels.appDescription.split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
             <div className="flex justify-center gap-3 md:justify-start">
               <Link
                 to="/diseases"

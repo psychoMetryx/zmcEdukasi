@@ -20,7 +20,7 @@ export const articles: Article[] = [
     title: 'Selamat Datang',
     summary: 'Perkenalan singkat mengenai ZMC Edukasi.',
     city: 'Bandung',
-    image: '',
+    image: '/article-placeholder.svg',
     content: [
       {
         type: 'text',
