@@ -12,13 +12,14 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       className="group block overflow-hidden rounded-2xl border border-brand-surfaceMuted bg-brand-surface shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
     >
       <div className="relative overflow-hidden [aspect-ratio:16/9]">
-        {article.image && (
-          <img
-            src={article.image}
-            alt={article.city}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        )}
+        <img
+          src={article.image || '/article-placeholder.svg'}
+          alt={article.city}
+          onError={(e) => {
+            e.currentTarget.src = '/article-placeholder.svg'
+          }}
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
       <div className="p-4">
         <h2 className="mb-1 text-lg font-semibold text-brand-foreground">

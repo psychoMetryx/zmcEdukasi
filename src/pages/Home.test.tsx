@@ -17,11 +17,7 @@ describe('Home page', () => {
       </MemoryRouter>
     )
 
-    expect(
-      screen.getByText(
-        'Pelajari penyakit sehari-hari, pencegahannya, dan penanganannya.'
-      )
-    ).toBeInTheDocument()
+    expect(screen.getByText('#ZMCGakNyuekinKamu')).toBeInTheDocument()
 
     expect(screen.getByText('Selamat Datang')).toBeInTheDocument()
 
