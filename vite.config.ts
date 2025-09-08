@@ -21,7 +21,7 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: ({ url }) => url.pathname.startsWith('/disease'),
+            urlPattern: ({ url }) => url.pathname.startsWith('/diseases'),
             handler: 'NetworkFirst',
             options: {
               cacheName: 'disease-cache'

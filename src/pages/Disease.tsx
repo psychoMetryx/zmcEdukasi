@@ -32,8 +32,8 @@ export default function Disease() {
       <div>
         <h1 className="mb-4 text-xl font-heading font-semibold">404</h1>
         <p>Penyakit tidak ditemukan.</p>
-        <Link to="/" className="text-brand-primary underline">
-          Kembali ke beranda
+        <Link to="/diseases" className="text-brand-primary underline">
+          Kembali ke daftar
         </Link>
       </div>
     )

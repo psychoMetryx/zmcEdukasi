@@ -5,5 +5,5 @@ export default {
   highContrast: 'Kontras Tinggi',
   largeText: 'Font Besar',
   language: 'Bahasa',
-  posts: 'Postingan',
+  diseases: 'Penyakit',
 }
