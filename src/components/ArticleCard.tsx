@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Article } from '../data/articles'
+import articlePlaceholder from '../assets/article-placeholder.svg?url'
 
 interface ArticleCardProps {
   article: Article
@@ -9,16 +10,17 @@ export default function ArticleCard({ article }: ArticleCardProps) {
   return (
     <Link
       to={`/artikel/${article.slug}`}
-      className="group block overflow-hidden rounded-2xl border border-brand-surfaceMuted bg-brand-surface shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
+      className="group block h-full overflow-hidden rounded-2xl border border-brand-surfaceMuted bg-brand-surface shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
     >
       <div className="relative overflow-hidden [aspect-ratio:16/9]">
-        {article.image && (
-          <img
-            src={article.image}
-            alt={article.city}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        )}
+        <img
+          src={article.image || articlePlaceholder}
+          alt={article.city}
+          onError={(e) => {
+            e.currentTarget.src = articlePlaceholder
+          }}
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
       <div className="p-4">
         <h2 className="mb-1 text-lg font-semibold text-brand-foreground">

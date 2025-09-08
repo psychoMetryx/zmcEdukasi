@@ -1,6 +1,7 @@
 export default {
-  appTitle: 'Aplikasi Edukasi Penyakit ZMC',
-  appDescription: 'Pelajari penyakit sehari-hari, pencegahannya, dan penanganannya.',
+  appTitle: 'Zihan Medical Center',
+  appDescription:
+    '#ZMCGakNyuekinKamu\n-- Sejak 2013--\nTANPA LIBUR\nMenerima BPJS Rawat Inap / Rawat Jalan\nWanaraja, Garut',
   home: 'Beranda',
   highContrast: 'Kontras Tinggi',
   largeText: 'Font Besar',

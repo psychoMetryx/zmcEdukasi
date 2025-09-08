@@ -18,10 +18,16 @@ describe('Home page', () => {
     )
 
     expect(
-      screen.getByText(
-        'Pelajari penyakit sehari-hari, pencegahannya, dan penanganannya.'
-      )
+      screen.getByText(/#ZMCGakNyuekinKamu/i),
     ).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', {
+        name: /instagram/i,
+      }),
+    ).toHaveAttribute(
+      'href',
+      'https://www.instagram.com/zihanmedicalcenter',
+    )
 
     expect(screen.getByText('Selamat Datang')).toBeInTheDocument()
 
