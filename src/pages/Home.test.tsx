@@ -24,6 +24,12 @@ describe('Home page', () => {
       </MemoryRouter>
     )
 
+    expect(
+      screen.getByText(
+        'Pelajari penyakit sehari-hari, pencegahannya, dan penanganannya.'
+      )
+    ).toBeInTheDocument()
+
     const summaryHeading = await screen.findByRole('heading', {
       name: 'Ringkasan Aktivitas',
     })
