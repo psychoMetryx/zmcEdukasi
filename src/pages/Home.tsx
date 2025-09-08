@@ -6,6 +6,7 @@ import { getLabels, Lang } from '../i18n'
 
 export default function Home() {
   const labels = getLabels((localStorage.getItem('ui:lang') as Lang) || 'id')
+  const description = (labels.appDescription ?? '').trim()
 
   return (
     <div>
@@ -13,10 +14,8 @@ export default function Home() {
         <div className="mx-auto max-w-4xl text-center md:grid md:grid-cols-2 md:items-center md:gap-8 md:text-left">
           <div>
             <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
-            <div className="mx-auto mb-6 max-w-2xl space-y-1 md:mx-0">
-              {labels.appDescription.split('\n').map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
+            <div className="mx-auto mb-6 max-w-2xl whitespace-pre-line md:mx-0">
+              {description}
             </div>
             <div className="flex justify-center gap-3 md:justify-start">
               <Link
@@ -26,12 +25,12 @@ export default function Home() {
                 Penyakit
               </Link>
               <a
-                href="https://www.instagram.com/zihanmedicalcenter"
+                href="https://instagram.com/zihanmedicalcenter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded border border-white px-6 py-3 font-heading font-semibold"
+                className="inline-flex items-center rounded-lg px-3 py-2 font-medium shadow hover:shadow-md focus:outline-none focus:ring"
               >
-                Instagram
+                Instagram @zihanmedicalcenter
               </a>
             </div>
           </div>

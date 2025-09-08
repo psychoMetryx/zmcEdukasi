@@ -17,7 +17,7 @@ describe('Home page', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByText('#ZMCGakNyuekinKamu')).toBeInTheDocument()
+    expect(screen.getByText(/#ZMCGakNyuekinKamu/)).toBeInTheDocument()
 
     expect(screen.getByText('Selamat Datang')).toBeInTheDocument()
 

@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom'
 import articlePlaceholder from '../assets/article-placeholder.svg'
 import type { Article } from '../data/articles'
 
+const safeSrc = (img?: string) => {
+  const v = (img ?? '').trim()
+  return v.length ? v : articlePlaceholder
+}
+
 interface ArticleCardProps {
   article: Article
 }
@@ -14,10 +19,15 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     >
       <div className="relative overflow-hidden [aspect-ratio:16/9]">
         <img
-          src={article.image || articlePlaceholder}
-          alt={article.city}
+          src={safeSrc(article.image)}
+          alt={article.title}
+          loading="lazy"
           onError={(e) => {
-            e.currentTarget.src = articlePlaceholder
+            const t = e.currentTarget
+            if (t.src !== articlePlaceholder) {
+              t.src = articlePlaceholder
+              t.onerror = null
+            }
           }}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
