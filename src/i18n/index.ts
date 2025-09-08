@@ -5,5 +5,5 @@ export const translations = { id, su }
 export type Lang = keyof typeof translations
 
 export function getLabels(lang: Lang) {
-  return translations[lang]
+  return translations[lang] ?? translations.id
 }
