@@ -1,6 +1,7 @@
 // Tambahkan objek baru ke array `articles` untuk membuat artikel baru.
 // Setiap artikel membutuhkan `slug`, `title`, `summary`, `city`, `image`,
 // dan `content` yang dapat berupa teks ataupun gambar.
+import articlePlaceholder from '../assets/article-placeholder.svg'
 export type ArticleBlock =
   | { type: 'text'; text: string }
   | { type: 'image'; src: string; alt?: string }
@@ -20,7 +21,7 @@ export const articles: Article[] = [
     title: 'Selamat Datang',
     summary: 'Perkenalan singkat mengenai ZMC Edukasi.',
     city: 'Bandung',
-    image: '/article-placeholder.svg',
+    image: articlePlaceholder,
     content: [
       {
         type: 'text',
