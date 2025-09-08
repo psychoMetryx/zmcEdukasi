@@ -39,7 +39,7 @@ export default function Home() {
           <div>
             <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
             <p className="mx-auto mb-6 max-w-2xl md:mx-0">
-              Pelajari penyakit sehari-hari, pencegahannya, dan penanganannya.
+              {labels.appDescription}
             </p>
             <div className="flex justify-center gap-3 md:justify-start">
               <a
