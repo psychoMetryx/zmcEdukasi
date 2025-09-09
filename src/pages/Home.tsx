@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-3xl p-6 md:p-8 shadow-xl select-none">
+      <div className="bg-gradient-to-br from-brand-primary to-brand-accent text-brand-background rounded-3xl p-6 md:p-8 shadow-xl select-none">
         <div className="mx-auto max-w-4xl text-center md:flex md:items-center md:gap-8 md:text-left">
           <div className="md:w-1/2">
             <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
