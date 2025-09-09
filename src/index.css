@@ -70,6 +70,12 @@
     --tw-gradient-to: #000;
   }
 
+  html.high-contrast .cta-link {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
+  }
+
   html.large-text {
     font-size: 125%;
   }

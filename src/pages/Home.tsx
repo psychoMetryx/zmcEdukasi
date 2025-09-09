@@ -24,7 +24,7 @@ export default function Home() {
             <div className="flex justify-center gap-3 md:justify-start">
               <Link
                 to="/diseases"
-                className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+                className="cta-link rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
               >
                 Penyakit
               </Link>
@@ -32,7 +32,7 @@ export default function Home() {
                 href="https://instagram.com/zihanmedicalcenter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
+                className="cta-link rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
               >
                 Instagram
               </a>
