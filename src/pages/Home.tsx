@@ -10,13 +10,13 @@ export default function Home() {
 
   return (
     <div>
-      <div className="bg-gradient-to-br from-brand-primary to-brand-accent text-brand-background rounded-3xl p-6 md:p-8 shadow-xl select-none">
+      <div className="bg-brand-primary bg-gradient-to-br from-brand-primary to-brand-accent rounded-3xl p-6 md:p-8 shadow-xl select-none">
         <div className="mx-auto max-w-4xl text-center md:flex md:items-center md:gap-8 md:text-left">
           <div className="md:w-1/2">
-            <h1 className="mb-4 text-3xl font-heading font-bold">{labels.appTitle}</h1>
+            <h1 className="mb-4 text-3xl font-heading font-bold text-brand-background">{labels.appTitle}</h1>
             <div className="mx-auto mb-6 max-w-2xl md:mx-0">
               {lines.map((line, i) => (
-                <p key={i} className="mb-1">
+                <p key={i} className="mb-1 text-brand-background">
                   {line}
                 </p>
               ))}
