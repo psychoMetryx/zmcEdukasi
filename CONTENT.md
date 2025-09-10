@@ -1,25 +1,7 @@
+
 # Panduan Menambah Konten
 
-Panduan singkat untuk menambah entri **penyakit** dan **artikel** pada aplikasi.
-
-## Menambah Entri Penyakit
-
-1. Buka berkas `src/data/diseases.ts`.
-2. Tambahkan objek baru ke array `diseases`.
-   - Wajib: `slug` (kebab-case), `name`, `summary`, `wave`.
-   - Opsional: `sections` (header, apaItu, faktorRisiko, gejala, tandaBahaya, pemeriksaan, penanganan, checklist, faq) dan `quiz`.
-3. Simpan berkas. Entri baru otomatis muncul di halaman penyakit dan bisa diakses melalui rute `/diseases/{slug}`.
-
-Contoh:
-
-```ts
-{
-  slug: 'contoh-penyakit',
-  name: 'Contoh Penyakit',
-  summary: 'Ringkasan singkat penyakit.',
-  wave: 1,
-}
-```
+Panduan singkat untuk menambah entri **artikel** pada aplikasi.
 
 ## Menambah Artikel
 

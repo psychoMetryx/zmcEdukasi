@@ -9,5 +9,4 @@ Wanaraja, Garut.`,
   highContrast: 'Kontras Tinggi',
   largeText: 'Font Besar',
   language: 'Bahasa',
-  diseases: 'Penyakit',
 }

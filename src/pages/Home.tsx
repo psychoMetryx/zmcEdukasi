@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Section from '../components/Section'
 import ArticleCard from '../components/ArticleCard'
 import { articles } from '../data/articles'
@@ -21,13 +20,7 @@ export default function Home() {
                 </p>
               ))}
             </div>
-            <div className="flex justify-center gap-3 md:justify-start">
-              <Link
-                to="/diseases"
-                className="cta-link rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
-              >
-                Penyakit
-              </Link>
+            <div className="flex justify-center md:justify-start">
               <a
                 href="https://instagram.com/zihanmedicalcenter"
                 target="_blank"

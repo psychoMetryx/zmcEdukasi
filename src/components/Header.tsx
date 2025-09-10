@@ -88,13 +88,6 @@ export default function Header() {
           >
             {labels.home}
           </Link>
-          <Link
-            to="/diseases"
-            className="rounded px-3 py-2 text-sm font-medium hover:bg-brand-accent hover:text-brand-background focus:bg-brand-accent focus:text-brand-background"
-            onClick={() => setMenuOpen(false)}
-          >
-            {labels.diseases}
-          </Link>
           <label className="flex items-center rounded px-3 py-2 text-sm hover:bg-brand-accent/20 focus-within:bg-brand-accent/20">
             <input
               type="checkbox"

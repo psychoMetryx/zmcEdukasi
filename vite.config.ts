@@ -24,13 +24,6 @@ export default defineConfig({
               cacheName: 'home-cache'
             }
           },
-          {
-            urlPattern: ({ url }) => url.pathname.startsWith('/diseases'),
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'disease-cache'
-            }
-          }
         ]
       },
       manifest: {

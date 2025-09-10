@@ -9,5 +9,4 @@ Wanaraja, Garut.`,
   highContrast: 'Kontras Luhur',
   largeText: 'Téks Gedé',
   language: 'Basa',
-  diseases: 'Panyakit',
 }
