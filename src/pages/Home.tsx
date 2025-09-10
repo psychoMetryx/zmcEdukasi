@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Section from '../components/Section'
 import ArticleCard from '../components/ArticleCard'
 import { articles } from '../data/articles'
@@ -22,12 +21,14 @@ export default function Home() {
               ))}
             </div>
             <div className="flex justify-center gap-3 md:justify-start">
-              <Link
-                to="/diseases"
+              <a
+                href="https://api.whatsapp.com/send/?phone=%2B6282217180432&type=phone_number&app_absent=0&fbclid=PAb21jcAMtplZleHRuA2FlbQIxMQABpypvxMDm1MYC1CcFqVeAR3KssHIEVdVc2Td6bZ7O5enrJU_icGDS7btsNwHj_aem_ewJGajyRcoONfEJt5N9y4g"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-link rounded bg-brand-background px-6 py-3 font-heading font-semibold text-brand-primary"
               >
-                Penyakit
-              </Link>
+                WhatsApp
+              </a>
               <a
                 href="https://instagram.com/zihanmedicalcenter"
                 target="_blank"
