@@ -1,19 +1,14 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter, Routes, Route } from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 
 import Home from './Home'
 
 describe('Home page', () => {
-  it('navigates to diseases page and shows article', async () => {
-    const user = userEvent.setup()
+  it('has WhatsApp link', () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/diseases" element={<div>Mock Diseases Page</div>} />
-        </Routes>
+      <MemoryRouter>
+        <Home />
       </MemoryRouter>
     )
 
@@ -21,7 +16,10 @@ describe('Home page', () => {
 
     expect(screen.getByText('Selamat Datang')).toBeInTheDocument()
 
-    await user.click(screen.getByRole('link', { name: /penyakit/i }))
-    expect(screen.getByText('Mock Diseases Page')).toBeInTheDocument()
+    const link = screen.getByRole('link', { name: /whatsapp/i })
+    expect(link).toHaveAttribute(
+      'href',
+      'https://api.whatsapp.com/send/?phone=%2B6282217180432&type=phone_number&app_absent=0&fbclid=PAb21jcAMtplZleHRuA2FlbQIxMQABpypvxMDm1MYC1CcFqVeAR3KssHIEVdVc2Td6bZ7O5enrJU_icGDS7btsNwHj_aem_ewJGajyRcoONfEJt5N9y4g'
+    )
   })
 })
