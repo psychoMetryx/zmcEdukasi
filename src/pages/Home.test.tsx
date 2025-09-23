@@ -3,12 +3,15 @@ import { MemoryRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 
 import Home from './Home'
+import { LanguageProvider } from '../hooks/useLanguage'
 
 describe('Home page', () => {
   it('has WhatsApp link', () => {
     render(
       <MemoryRouter>
-        <Home />
+        <LanguageProvider>
+          <Home />
+        </LanguageProvider>
       </MemoryRouter>
     )
 
