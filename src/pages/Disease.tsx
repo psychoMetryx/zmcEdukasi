@@ -49,7 +49,7 @@ export default function Disease() {
     s?.penanganan && { key: 'penanganan', label: 'Penanganan', content: renderList(s.penanganan) },
     s?.checklist && { key: 'checklist', label: 'Checklist', content: renderList(s.checklist) },
     s?.faq && { key: 'faq', label: 'FAQ', content: renderList(s.faq) },
-    disease.quiz && {
+    Array.isArray(disease.quiz) && disease.quiz.length > 0 && {
       key: 'quiz',
       label: 'Kuis',
       content: (
