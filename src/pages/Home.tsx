@@ -1,10 +1,12 @@
 import Section from '../components/Section'
 import ArticleCard from '../components/ArticleCard'
 import { articles } from '../data/articles'
-import { getLabels, Lang } from '../i18n'
+import { getLabels } from '../i18n'
+import { useLanguage } from '../hooks/useLanguage'
 
 export default function Home() {
-  const labels = getLabels((localStorage.getItem('ui:lang') as Lang) || 'id')
+  const { lang } = useLanguage()
+  const labels = getLabels(lang)
   const lines = (labels.appDescription || '').split(/\r?\n/).filter(Boolean)
 
   return (

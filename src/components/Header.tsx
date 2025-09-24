@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { getLabels, Lang } from '../i18n'
+import { useLanguage } from '../hooks/useLanguage'
 
 export default function Header() {
-  const [lang, setLang] = useState<Lang>(
-    () => (localStorage.getItem('ui:lang') as Lang) || 'id'
-  )
+  const { lang, setLang } = useLanguage()
   const [highContrast, setHighContrast] = useState(
     () => localStorage.getItem('a11y:zmc:contrast') === '1'
   )
@@ -23,10 +22,6 @@ export default function Header() {
   useEffect(() => {
     localStorage.setItem('a11y:zmc:font', largeText ? '1' : '0')
   }, [largeText])
-
-  useEffect(() => {
-    localStorage.setItem('ui:lang', lang)
-  }, [lang])
 
   return (
     <header

@@ -5,17 +5,20 @@ import Diseases from './pages/Diseases'
 import Articles from './pages/Articles'
 import Article from './pages/Article'
 import Container from './components/Container'
+import { LanguageProvider } from './hooks/useLanguage'
 
 export default function App() {
   return (
-    <Container>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/diseases" element={<Diseases />} />
-        <Route path="/diseases/:slug" element={<Disease />} />
-        <Route path="/artikel" element={<Articles />} />
-        <Route path="/artikel/:slug" element={<Article />} />
-      </Routes>
-    </Container>
+    <LanguageProvider>
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/diseases" element={<Diseases />} />
+          <Route path="/diseases/:slug" element={<Disease />} />
+          <Route path="/artikel" element={<Articles />} />
+          <Route path="/artikel/:slug" element={<Article />} />
+        </Routes>
+      </Container>
+    </LanguageProvider>
   )
 }
