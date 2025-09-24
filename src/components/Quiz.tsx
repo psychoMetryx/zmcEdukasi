@@ -24,8 +24,6 @@ export default function Quiz({ questions, onFinish }: QuizProps) {
     track('quiz_start', { total: questions.length })
   }, [questions.length])
 
-  const q = questions[current]
-
   function selectOption(index: number) {
     const next = [...selected]
     next[current] = index
@@ -46,6 +44,12 @@ export default function Quiz({ questions, onFinish }: QuizProps) {
       onFinish(s)
     }
   }
+
+  if (questions.length === 0) {
+    return <div className="mt-2">Kuis belum tersedia.</div>
+  }
+
+  const q = questions[current]
 
   if (finished) {
     return (
