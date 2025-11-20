@@ -4,7 +4,7 @@
 import articlePlaceholder from '../assets/article-placeholder.svg'
 export type ArticleBlock =
   | { type: 'text'; text: string }
-  | { type: 'image'; src: string; alt?: string }
+  | { type: 'image'; src: string; alt: string }
 
 export interface Article {
   slug: string

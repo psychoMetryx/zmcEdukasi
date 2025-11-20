@@ -25,11 +25,12 @@ export default function Article() {
         if (block.type === 'text') {
           return <p key={i}>{block.text}</p>
         }
+        const altText = block.alt?.trim() || article.title
         return (
           <img
             key={i}
             src={block.src}
-            alt={block.alt || ''}
+            alt={altText}
             className="w-full rounded"
           />
         )
