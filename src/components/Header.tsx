@@ -6,23 +6,38 @@ import { useLanguage } from '../hooks/useLanguage'
 
 export default function Header() {
   const { lang, setLang } = useLanguage()
+  const canUseLocalStorage = () =>
+    typeof window !== 'undefined' && typeof window.localStorage !== 'undefined'
+
   const [highContrast, setHighContrast] = useState(
-    () => localStorage.getItem('a11y:zmc:contrast') === '1'
+    () =>
+      canUseLocalStorage() &&
+      window.localStorage.getItem('a11y:zmc:contrast') === '1'
   )
   const [largeText, setLargeText] = useState(
-    () => localStorage.getItem('a11y:zmc:font') === '1'
+    () => canUseLocalStorage() && window.localStorage.getItem('a11y:zmc:font') === '1'
   )
   const [menuOpen, setMenuOpen] = useState(false)
   const labels = getLabels(lang)
 
   useEffect(() => {
-    localStorage.setItem('a11y:zmc:contrast', highContrast ? '1' : '0')
-    document.documentElement.classList.toggle('high-contrast', highContrast)
+    if (canUseLocalStorage()) {
+      window.localStorage.setItem('a11y:zmc:contrast', highContrast ? '1' : '0')
+    }
+
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.toggle('high-contrast', highContrast)
+    }
   }, [highContrast])
 
   useEffect(() => {
-    localStorage.setItem('a11y:zmc:font', largeText ? '1' : '0')
-    document.documentElement.classList.toggle('large-text', largeText)
+    if (canUseLocalStorage()) {
+      window.localStorage.setItem('a11y:zmc:font', largeText ? '1' : '0')
+    }
+
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.toggle('large-text', largeText)
+    }
   }, [largeText])
 
   return (
