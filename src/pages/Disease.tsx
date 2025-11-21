@@ -5,8 +5,10 @@ import Quiz from '../components/Quiz'
 import { generateLeafletPDF } from '../utils/leaflet'
 import { track } from '../utils/analytics'
 
+const placeholder = <p className="text-brand-muted">Konten menyusul</p>
+
 function renderList(items?: string[]) {
-  if (!items || items.length === 0) return null
+  if (!items || items.length === 0) return placeholder
   return (
     <ul className="list-disc pl-4">
       {items.map((item) => (
@@ -41,15 +43,18 @@ export default function Disease() {
 
   const s = disease.sections
 
-  const tabs = [
-    s?.faktorRisiko && { key: 'faktorRisiko', label: 'Faktor Risiko', content: renderList(s.faktorRisiko) },
-    s?.gejala && { key: 'gejala', label: 'Gejala', content: renderList(s.gejala) },
-    s?.tandaBahaya && { key: 'tandaBahaya', label: 'Tanda Bahaya', content: renderList(s.tandaBahaya) },
-    s?.pemeriksaan && { key: 'pemeriksaan', label: 'Pemeriksaan', content: renderList(s.pemeriksaan) },
-    s?.penanganan && { key: 'penanganan', label: 'Penanganan', content: renderList(s.penanganan) },
-    s?.checklist && { key: 'checklist', label: 'Checklist', content: renderList(s.checklist) },
-    s?.faq && { key: 'faq', label: 'FAQ', content: renderList(s.faq) },
-    Array.isArray(disease.quiz) && disease.quiz.length > 0 && {
+  const tabs: { key: string; label: string; content: ReactNode }[] = [
+    { key: 'faktorRisiko', label: 'Faktor Risiko', content: renderList(s?.faktorRisiko) },
+    { key: 'gejala', label: 'Gejala', content: renderList(s?.gejala) },
+    { key: 'tandaBahaya', label: 'Tanda Bahaya', content: renderList(s?.tandaBahaya) },
+    { key: 'pemeriksaan', label: 'Pemeriksaan', content: renderList(s?.pemeriksaan) },
+    { key: 'penanganan', label: 'Penanganan', content: renderList(s?.penanganan) },
+    { key: 'checklist', label: 'Checklist', content: renderList(s?.checklist) },
+    { key: 'faq', label: 'FAQ', content: renderList(s?.faq) },
+  ]
+
+  if (Array.isArray(disease.quiz) && disease.quiz.length > 0) {
+    tabs.push({
       key: 'quiz',
       label: 'Kuis',
       content: (
@@ -60,8 +65,8 @@ export default function Disease() {
           }}
         />
       ),
-    },
-  ].filter(Boolean) as { key: string; label: string; content: ReactNode }[]
+    })
+  }
 
   useEffect(() => {
     if (tab === '' && tabs.length > 0) {
@@ -84,12 +89,10 @@ export default function Disease() {
       </section>
       <div className="container mx-auto px-4">
         {s?.header && <p className="mb-4">{s.header}</p>}
-        {s?.apaItu && (
-          <section className="mb-4">
-            <h2 className="font-heading font-semibold">Apa itu?</h2>
-            <p>{s.apaItu}</p>
-          </section>
-        )}
+        <section className="mb-4">
+          <h2 className="font-heading font-semibold">Apa itu?</h2>
+          <p>{s?.apaItu ?? 'Konten menyusul'}</p>
+        </section>
         {tabs.length > 0 && (
           <>
             <div className="flex flex-wrap gap-2 border-b">
@@ -107,7 +110,7 @@ export default function Disease() {
                 </button>
               ))}
             </div>
-            <div className="mt-4">{current?.content}</div>
+            <div className="mt-4">{current?.content ?? placeholder}</div>
           </>
         )}
       </div>
