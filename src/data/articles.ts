@@ -103,6 +103,63 @@ Malam: Nasi merah sedikit + tumis bayam jagung tanpa banyak garam + tempe bakar 
       },
     ],
   },
+  {
+    slug: 'pola-hidup-budaya-sehat',
+    title: 'Pola Hidup dan Budaya Sehat',
+    summary:
+      'Langkah praktis membangun kebiasaan sehat yang selaras dengan budaya lokal, mulai dari makan, bergerak, sampai menjaga kebersihan.',
+    city: 'Yogyakarta',
+    image: 'https://i.imgur.com/g2CYKCD.jpeg',
+    content: [
+      {
+        type: 'text',
+        text: `Mengapa budaya sehat penting?
+
+Gaya hidup sehat lebih mudah dijalankan kalau sesuai dengan budaya sehari-hari. Dengan menyesuaikan pola makan, aktivitas, dan kebiasaan kebersihan ke konteks lokal, perubahan terasa lebih alami dan berkelanjutan.`,
+      },
+      {
+        type: 'text',
+        text: `Pola makan berbasis pangan lokal
+
+- Prioritaskan bahan segar: sayur hijau (bayam, kangkung), buah musiman (pisang, pepaya, semangka), sumber protein nabati (tempe, tahu).
+- Kurangi gula dan minyak berlebih pada kudapan tradisional: pilih kukusan atau panggangan untuk mengganti gorengan.
+- Gunakan bumbu rempah untuk rasa: kunyit, jahe, serai, daun jeruk membantu menekan kebutuhan garam.`,
+      },
+      {
+        type: 'text',
+        text: `Aktivitas fisik yang kontekstual
+
+- Jalan kaki ke pasar, bersepeda keliling kampung, atau senam pagi di balai warga.
+- Rutinitas domestik seperti berkebun, mengepel, atau menjemur pakaian bisa dihitung sebagai gerak aktif jika dilakukan 30–45 menit total per hari.
+- Gabungkan stretching ringan sebelum beribadah atau sebelum mulai bekerja untuk menjaga mobilitas sendi.`,
+      },
+      {
+        type: 'text',
+        text: `Istirahat dan manajemen stres
+
+- Ciptakan jam tidur yang konsisten, minimalkan kopi atau teh pekat setelah sore.
+- Manfaatkan momen sosial lokal: arisan, pengajian, atau kumpul RT sebagai ruang saling dukung kesehatan mental.
+- Latih relaksasi sederhana seperti napas dalam 4-7-8 atau dzikir/meditasi 5 menit ketika mulai merasa cemas.`,
+      },
+      {
+        type: 'text',
+        text: `Kebersihan diri dan lingkungan
+
+- Biasakan cuci tangan pakai sabun sebelum makan dan setelah beraktivitas di luar.
+- Jaga kebersihan dapur: ganti spons/cuci lap secara berkala, pisahkan talenan untuk mentah dan matang.
+- Kelola sampah organik jadi kompos, pisahkan sampah anorganik untuk mencegah vektor penyakit.`,
+      },
+      {
+        type: 'text',
+        text: `Contoh jadwal harian budaya sehat
+
+Pagi: air hangat + buah, sarapan bubur kacang hijau/ubi rebus, jalan kaki 20 menit.
+Siang: nasi + sayur bening + tempe/ikan bakar, minum air putih 2 gelas, stretching 5 menit.
+Sore: buah potong atau rujak tanpa gula berlebih, kompres hangat untuk relaksasi pundak.
+Malam: porsi nasi lebih kecil, lauk rebusan atau kukusan, tidur 7–9 jam dalam ruangan yang cukup gelap.`,
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string) {
